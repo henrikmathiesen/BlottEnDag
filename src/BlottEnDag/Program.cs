@@ -9,7 +9,7 @@ namespace BlottEnDag
 
             Console.WriteLine("Ännu en dag. Fyll i J för Ja, N för Nej. Eller tryck Q för att avbryta");
 
-            var oneDay = new OneDay(DateTime.Now.ToShortDateString());
+            var oneDay = new OneDay(DateTime.Now);
             var userAborted = false;
 
             for (int i = 0; i < oneDay.GetQuestionCount(); i++)
@@ -50,6 +50,8 @@ namespace BlottEnDag
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine("Sparad. Som din dag ska ock din kraft vara");
+                Console.WriteLine();
+                Console.WriteLine(oneDay.GetDate());
                 Console.WriteLine();
 
                 for (int i = 0; i < oneDay.GetQuestionCount(); i++)

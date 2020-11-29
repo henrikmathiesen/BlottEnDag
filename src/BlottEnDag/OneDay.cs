@@ -1,5 +1,7 @@
 
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace BlottEnDag
 {
@@ -7,17 +9,25 @@ namespace BlottEnDag
     public class OneDay
     {
 
-        private string date;
+        private DateTime date;
         
         // TODO: object instead
         private List<string> questions;
         private List<bool> answers;
 
-        public OneDay(string date)
+        public OneDay(DateTime date)
         {
             this.date = date;
             this.questions = QuestionsAndAnswers.questions;
             this.answers = QuestionsAndAnswers.answers;
+        }
+
+        public string GetDate()
+        {
+            var culture = new CultureInfo("sv-SE");
+            var day = culture.DateTimeFormat.GetDayName(this.date.DayOfWeek);
+
+            return $"{day.ToUpper()} {this.date.ToShortDateString()}";
         }
 
         public int GetQuestionCount()
