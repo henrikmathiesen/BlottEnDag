@@ -8,6 +8,8 @@ namespace BlottEnDag
     {
 
         private string date;
+        
+        // TODO: object instead
         private List<string> questions;
         private List<bool> answers;
 
@@ -37,7 +39,10 @@ namespace BlottEnDag
 
         public string GetQuestionAndAnswer(int nr)
         {
-            return $"{this.questions[nr]} | {this.answers[nr]}";
+            var question = this.questions[nr];
+            var answer = this.answers[nr] == true ? "Ja" : "Nej";
+            
+            return $"{question} | {answer}";
         }
 
         public void SetAnswer(int nr, bool answer)

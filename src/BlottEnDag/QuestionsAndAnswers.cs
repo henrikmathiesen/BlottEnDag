@@ -5,6 +5,7 @@ namespace BlottEnDag
 
     static class QuestionsAndAnswers
     {
+        // TODO: object instead
 
         public static List<string> questions = new List<string>()
         {

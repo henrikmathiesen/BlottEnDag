@@ -6,24 +6,60 @@ namespace BlottEnDag
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("Say something");
 
-            // var input = Console.ReadLine();
-            // var today = DateTime.Now.ToShortDateString();
-
-            // var oneDay = new OneDay(today);
-
-            // Console.WriteLine(input);
+            Console.WriteLine("Ännu en dag. Fyll i J för Ja, N för Nej. Eller tryck Q för att avbryta");
 
             var oneDay = new OneDay(DateTime.Now.ToShortDateString());
+            var userAborted = false;
 
             for (int i = 0; i < oneDay.GetQuestionCount(); i++)
             {
-                Console.WriteLine(oneDay.GetQuestionAndAnswer(i));
+                Console.WriteLine(oneDay.GetQuestion(i));
+
+                var answer = Console.ReadLine();
+
+                switch (answer.ToLower())
+                {
+                    case "q":
+                        userAborted = true;
+                        break;
+                    case "j":
+                        oneDay.SetAnswer(i, true);
+                        break;
+                    case "n":
+                        oneDay.SetAnswer(i, false);
+                        break;
+                    default:
+                        Console.WriteLine("FEL!");
+                        i--;
+                        break;
+                }
+
+                if (userAborted)
+                {
+                    break;
+                }
+            }
+
+            if (userAborted)
+            {
+                Console.WriteLine("Avbryten");
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Sparad. Som din dag ska ock din kraft vara");
+                Console.WriteLine();
+
+                for (int i = 0; i < oneDay.GetQuestionCount(); i++)
+                {
+                    Console.WriteLine(oneDay.GetQuestionAndAnswer(i));
+                }
             }
 
 
-            
+
         }
     }
 }
