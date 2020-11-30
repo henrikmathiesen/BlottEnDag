@@ -9,45 +9,45 @@ namespace BlottEnDag
     public class OneDay
     {
 
-        private DateTime date;
+        private DateTime _Date;
 
-        private List<QuestionAndAnswer> questionAndAnswer;
+        private List<QuestionAndAnswer> _QuestionAndAnswer;
 
         public OneDay(DateTime date)
         {
-            this.date = date;
-            this.questionAndAnswer = QuestionsAndAnswers.GetQuestionsAndAnswers;
+            this._Date = date;
+            this._QuestionAndAnswer = QuestionsAndAnswers.GetQuestionsAndAnswers;
         }
 
         public string GetDate()
         {
             var culture = new CultureInfo("sv-SE");
-            var day = culture.DateTimeFormat.GetDayName(this.date.DayOfWeek);
+            var day = culture.DateTimeFormat.GetDayName(this._Date.DayOfWeek);
 
-            return $"{day.ToUpper()} {this.date.ToShortDateString()}";
+            return $"{day.ToUpper()} {this._Date.ToShortDateString()}";
         }
 
         public int GetQuestionCount()
         {
-            return this.questionAndAnswer.Count;
+            return this._QuestionAndAnswer.Count;
         }
 
         public string GetQuestion(int nr)
         {
-            return this.questionAndAnswer[nr].Question;
+            return this._QuestionAndAnswer[nr].Question;
         }
 
         public string GetQuestionAndAnswer(int nr)
         {
-            var question = this.questionAndAnswer[nr].Question;
-            var answer = this.questionAndAnswer[nr].Answer == true ? "Ja" : "Nej";
+            var question = this._QuestionAndAnswer[nr].Question;
+            var answer = this._QuestionAndAnswer[nr].Answer == true ? "Ja" : "Nej";
             
             return $"{question} | {answer}";
         }
 
         public void SetAnswer(int nr, bool answer)
         {
-            this.questionAndAnswer[nr].Answer = answer;
+            this._QuestionAndAnswer[nr].Answer = answer;
         }
 
     }
