@@ -10,16 +10,13 @@ namespace BlottEnDag
     {
 
         private DateTime date;
-        
-        // TODO: object instead
-        private List<string> questions;
-        private List<bool> answers;
+
+        private List<QuestionAndAnswer> questionAndAnswer;
 
         public OneDay(DateTime date)
         {
             this.date = date;
-            this.questions = QuestionsAndAnswers.questions;
-            this.answers = QuestionsAndAnswers.answers;
+            this.questionAndAnswer = QuestionsAndAnswers.GetQuestionsAndAnswers;
         }
 
         public string GetDate()
@@ -32,32 +29,25 @@ namespace BlottEnDag
 
         public int GetQuestionCount()
         {
-            if (this.questions.Count == this.answers.Count)
-            {
-                return this.questions.Count;
-            }
-            else
-            {
-                return 0;
-            }
+            return this.questionAndAnswer.Count;
         }
 
         public string GetQuestion(int nr)
         {
-            return this.questions[nr];
+            return this.questionAndAnswer[nr].Question;
         }
 
         public string GetQuestionAndAnswer(int nr)
         {
-            var question = this.questions[nr];
-            var answer = this.answers[nr] == true ? "Ja" : "Nej";
+            var question = this.questionAndAnswer[nr].Question;
+            var answer = this.questionAndAnswer[nr].Answer == true ? "Ja" : "Nej";
             
             return $"{question} | {answer}";
         }
 
         public void SetAnswer(int nr, bool answer)
         {
-            this.answers[nr] = answer;
+            this.questionAndAnswer[nr].Answer = answer;
         }
 
     }

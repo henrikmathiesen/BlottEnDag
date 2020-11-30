@@ -4,10 +4,13 @@ namespace BlottEnDag
 {
     class Program
     {
+        private static readonly string greeting = "Ännu en dag.";
+        private static readonly string instructions = "Fyll i J för Ja, N för Nej. Eller tryck Q för att avbryta.";
+
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Ännu en dag. Fyll i J för Ja, N för Nej. Eller tryck Q för att avbryta");
+            Console.WriteLine($"{greeting} {instructions}");
 
             var oneDay = new OneDay(DateTime.Now);
             var userAborted = false;
@@ -30,7 +33,7 @@ namespace BlottEnDag
                         oneDay.SetAnswer(i, false);
                         break;
                     default:
-                        Console.WriteLine("FEL!");
+                        Console.WriteLine(instructions);
                         i--;
                         break;
                 }
