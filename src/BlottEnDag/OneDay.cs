@@ -53,6 +53,8 @@ namespace BlottEnDag
 
         public int GetRating()
         {
+            var rating = 0;
+
             return 5;
         }
 
