@@ -8,6 +8,7 @@ namespace BlottEnDag
 
     public class OneDay
     {
+        public static readonly int MAX_RATING = 5;
 
         private DateTime _Date;
 
@@ -41,13 +42,18 @@ namespace BlottEnDag
         {
             var question = this._QuestionAndAnswer[nr].Question;
             var answer = this._QuestionAndAnswer[nr].Answer == true ? "Ja" : "Nej";
-            
+
             return $"{question} | {answer}";
         }
 
         public void SetAnswer(int nr, bool answer)
         {
             this._QuestionAndAnswer[nr].Answer = answer;
+        }
+
+        public int GetRating()
+        {
+            return 5;
         }
 
     }

@@ -57,6 +57,9 @@ namespace BlottEnDag
                 Console.WriteLine(oneDay.GetDate());
                 Console.WriteLine();
 
+                Console.WriteLine($"Din dag fick betyget {oneDay.GetRating()} av {OneDay.MAX_RATING}");
+                Console.WriteLine();
+
                 for (int i = 0; i < oneDay.GetQuestionCount(); i++)
                 {
                     Console.WriteLine(oneDay.GetQuestionAndAnswer(i));
