@@ -10,6 +10,8 @@ namespace BlottEnDag
     {
         public static readonly int MAX_RATING = 5;
 
+        private static readonly int MIN_RATING = 1;
+
         private DateTime _Date;
 
         private List<QuestionAndAnswer> _QuestionAndAnswer;
@@ -55,7 +57,88 @@ namespace BlottEnDag
         {
             var rating = 0;
 
-            return 5;
+            var didCrossFit = this._QuestionAndAnswer[0].Answer == true;
+            var didLocalGym = this._QuestionAndAnswer[1].Answer == true;
+            var didHomeGym = this._QuestionAndAnswer[2].Answer == true;
+            var didManySteps = this._QuestionAndAnswer[3].Answer == true;
+            var didntSitStill = this._QuestionAndAnswer[4].Answer == true;
+            var didEatFruit = this._QuestionAndAnswer[5].Answer == true;
+            var didEatVeggies = this._QuestionAndAnswer[6].Answer == true;
+            var didEatDessert = this._QuestionAndAnswer[7].Answer == true;
+            var didEatSnacks = this._QuestionAndAnswer[8].Answer == true;
+
+            // ------------------------
+
+            if (didCrossFit)
+            {
+                rating += 9;
+            }
+
+            if (didLocalGym)
+            {
+                rating += 8;
+            }
+
+            if (didHomeGym)
+            {
+                rating += 7;
+            }
+
+            // ------------------------
+
+            if (didManySteps)
+            {
+                rating += 1;
+            }
+            else
+            {
+                rating -= 1;
+            }
+
+            if (didntSitStill)
+            {
+                rating += 1;
+            }
+            else
+            {
+                rating -= 1;
+            }
+
+            // ------------------------
+
+            if (didEatFruit)
+            {
+                rating += 1;
+            }
+
+            if(didEatVeggies)
+            {
+                rating += 1;
+            }
+
+            if(didEatDessert)
+            {
+                rating -= 2;
+            }
+
+            if(didEatSnacks)
+            {
+                rating -= 2;
+            }
+
+            // ------------------------
+
+            if (rating < OneDay.MIN_RATING)
+            {
+                return OneDay.MIN_RATING;
+            }
+
+            if (rating > OneDay.MAX_RATING)
+            {
+                return OneDay.MAX_RATING;
+            }
+
+            return rating;
         }
 
     }
