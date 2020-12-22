@@ -71,17 +71,17 @@ namespace BlottEnDag
 
             if (didCrossFit)
             {
-                rating += 8;
+                rating += 9;
             }
 
             if (didLocalGym)
             {
-                rating += 7;
+                rating += 8;
             }
 
             if (didHomeGym)
             {
-                rating += 6;
+                rating += 5;
             }
 
             // ------------------------
@@ -126,12 +126,12 @@ namespace BlottEnDag
 
             if(didEatDessert)
             {
-                rating -= 3;
+                rating -= 2;
             }
 
             if(didEatSnacks)
             {
-                rating -= 3;
+                rating -= 2;
             }
 
             // ------------------------

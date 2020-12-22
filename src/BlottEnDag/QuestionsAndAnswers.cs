@@ -10,7 +10,7 @@ namespace BlottEnDag
             new QuestionAndAnswer { Question = "Tränade du CrossFit?", Answer = false },
             new QuestionAndAnswer { Question = "Gick du till lokala gymmet?", Answer = false },
             new QuestionAndAnswer { Question = "Tränade du i hemmagymmet?", Answer = false },
-            new QuestionAndAnswer { Question = "Över 7000 steg på stegräknaren?", Answer = false },
+            new QuestionAndAnswer { Question = "Över 7000 steg på stegräknaren? Försökte gå långt...", Answer = false },
             new QuestionAndAnswer { Question = "Under 3 timmar i fåtölj?", Answer = false },
             new QuestionAndAnswer { Question = "Ätit en frukt?", Answer = false },
             new QuestionAndAnswer { Question = "Ätit grönsaker?", Answer = false },
