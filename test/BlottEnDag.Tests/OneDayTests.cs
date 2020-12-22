@@ -18,7 +18,7 @@ namespace BlottEnDag.Tests
             for (int i = 0; i < oneDay.GetQuestionCount(); i++)
             {
                 var answer = oneDay.GetQuestionAndAnswer(i);
-                
+
                 var actual = answer.Split(" | ")[1].Trim();
                 var expected = GetIsEvenNumber(i) ? "Ja" : "Nej";
 

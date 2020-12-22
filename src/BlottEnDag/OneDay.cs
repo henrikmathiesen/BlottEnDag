@@ -10,7 +10,7 @@ namespace BlottEnDag
     {
         public static readonly int MAX_RATING = 5;
 
-        private static readonly int MIN_RATING = 1;
+        public static readonly int MIN_RATING = 1;
 
         private DateTime _Date;
 
