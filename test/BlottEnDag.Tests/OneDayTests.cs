@@ -243,6 +243,83 @@ namespace BlottEnDag.Tests
             Assert.Equal(5, oneDay.GetRating());
         }
 
+        // A typical day
+
+        [Fact]
+        public void GetRatingTypicalDayOne()
+        {
+            var oneDay = new OneDay(DateTime.Now);
+
+            // Exercise
+            oneDay.SetAnswer(0, false);
+            oneDay.SetAnswer(1, false);
+            oneDay.SetAnswer(2, false);
+
+            // Stegraknare, No Sofa
+            oneDay.SetAnswer(3, true);
+            oneDay.SetAnswer(4, true);
+
+            // Fruit, Veggies
+            oneDay.SetAnswer(5, true);
+            oneDay.SetAnswer(6, true);
+
+            // Dessert, Snacks
+            oneDay.SetAnswer(7, false);
+            oneDay.SetAnswer(8, false);
+
+            Assert.Equal(4, oneDay.GetRating());
+        }
+
+        [Fact]
+        public void GetRatingTypicalDayTwo()
+        {
+            var oneDay = new OneDay(DateTime.Now);
+
+            // Exercise
+            oneDay.SetAnswer(0, false);
+            oneDay.SetAnswer(1, true);
+            oneDay.SetAnswer(2, false);
+
+            // Stegraknare, No Sofa
+            oneDay.SetAnswer(3, false);
+            oneDay.SetAnswer(4, false);
+
+            // Fruit, Veggies
+            oneDay.SetAnswer(5, true);
+            oneDay.SetAnswer(6, false);
+
+            // Dessert, Snacks
+            oneDay.SetAnswer(7, false);
+            oneDay.SetAnswer(8, false);
+
+            Assert.Equal(5, oneDay.GetRating());
+        }
+
+        [Fact]
+        public void GetRatingTypicalDayThree()
+        {
+            var oneDay = new OneDay(DateTime.Now);
+
+            // Exercise
+            oneDay.SetAnswer(0, false);
+            oneDay.SetAnswer(1, false);
+            oneDay.SetAnswer(2, false);
+
+            // Stegraknare, No Sofa
+            oneDay.SetAnswer(3, true);
+            oneDay.SetAnswer(4, true);
+
+            // Fruit, Veggies
+            oneDay.SetAnswer(5, true);
+            oneDay.SetAnswer(6, true);
+
+            // Dessert, Snacks
+            oneDay.SetAnswer(7, true);
+            oneDay.SetAnswer(8, false);
+
+            Assert.Equal(2, oneDay.GetRating());
+        }
+
         private bool GetIsEvenNumber(int num)
         {
             if (num % 2 == 0)
