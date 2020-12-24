@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Extensions.Configuration;
 
 /* 
 
@@ -17,6 +18,7 @@ namespace BlottEnDag
 
         static void Main(string[] args)
         {
+            var configuration = SetupAppSettings();
 
             Console.WriteLine($"{greeting} {instructions}");
 
@@ -73,9 +75,18 @@ namespace BlottEnDag
                     Console.WriteLine(oneDay.GetQuestionAndAnswer(i));
                 }
             }
+        }
 
+        static private IConfiguration SetupAppSettings()
+        {
+            // https://blog.hildenco.com/2020/05/configuration-in-net-core-console.html
+            // But also remember to copy in the .csproj file
 
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
 
+            return configuration;
         }
     }
 }
