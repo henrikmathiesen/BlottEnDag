@@ -155,11 +155,9 @@ namespace BlottEnDag
         {
             var model = new DbModel();
             
-            // TODO: not working
             model.answers = JsonSerializer.Serialize(_QuestionAndAnswer);
             model.deleted = false;
             model.score = GetRating();
-            
             model.theDate = _Date.ToUniversalTime().ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'");
 
             // See also

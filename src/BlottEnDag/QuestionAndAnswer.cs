@@ -3,8 +3,9 @@ namespace BlottEnDag
 
     public class QuestionAndAnswer
     {
-        public string Question;
-        public bool Answer;
+        // These need to be properties for JsonSerializer to work
+        public string Question { get; set; }
+        public bool Answer { get; set; }
     }
 
 }
