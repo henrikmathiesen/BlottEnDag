@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 
 /* 
 
-    TODO: store date in DB
+    TODO: store date in DB, store answers as json
     https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
     string search: 6/15/2009 1:45:30 PM (Utc) --> 2009-06-15T13:45:30.0000000Z
 
