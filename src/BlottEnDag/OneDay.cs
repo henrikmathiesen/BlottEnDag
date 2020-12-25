@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace BlottEnDag
 {
@@ -149,6 +151,18 @@ namespace BlottEnDag
             return rating;
         }
 
+        public void Save()
+        {
+            var model = new DbModel();
+            
+            // TODO: not working
+            model.answers = JsonSerializer.Serialize(_QuestionAndAnswer);
+            model.deleted = false;
+            model.score = GetRating();
+            
+            // No time diff info
+            model.theDate = _Date.ToUniversalTime().ToString();
+        }
     }
 
 }

@@ -1,8 +1,9 @@
-namespace BlottEnDag { 
+namespace BlottEnDag 
+{ 
 
-    class DbModel
+    public class DbModel
     {
-        public DateTime theDate;
+        public string theDate;
         public int score;
         public string answers;
         public bool deleted;

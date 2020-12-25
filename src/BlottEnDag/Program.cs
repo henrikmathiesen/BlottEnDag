@@ -62,6 +62,9 @@ namespace BlottEnDag
             {
                 Console.WriteLine();
                 Console.WriteLine();
+
+                oneDay.Save();
+                
                 Console.WriteLine("Sparad. Som din dag ska ock din kraft vara");
                 Console.WriteLine();
                 Console.WriteLine(oneDay.GetDate());

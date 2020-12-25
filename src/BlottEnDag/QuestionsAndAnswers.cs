@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace BlottEnDag
 {
 
-    static class QuestionsAndAnswers
+    public static class QuestionsAndAnswers
     {
         private static List<QuestionAndAnswer> _GetQuestionsAndAnswers = new List<QuestionAndAnswer>()
         {

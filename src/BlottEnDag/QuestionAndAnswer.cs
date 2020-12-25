@@ -1,6 +1,8 @@
-namespace BlottEnDag {
+namespace BlottEnDag
+{
 
-    class QuestionAndAnswer {
+    public class QuestionAndAnswer
+    {
         public string Question;
         public bool Answer;
     }
