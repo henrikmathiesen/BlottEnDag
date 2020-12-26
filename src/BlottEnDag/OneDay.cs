@@ -150,7 +150,7 @@ namespace BlottEnDag
             return rating;
         }
 
-        public void Save()
+        public void Save(string connectionString)
         {
             var model = new DbModel();
             
@@ -158,6 +158,8 @@ namespace BlottEnDag
             model.deleted = false;
             model.score = GetRating();
             model.theDate = DateHelpers.getUniversalTimeString(_Date);
+
+            Db.Save(model, connectionString);
 
             // See also
             // https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
