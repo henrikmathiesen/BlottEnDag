@@ -17,8 +17,7 @@ namespace BlottEnDag
             
             var options = new JsonSerializerOptions
             {
-                Encoder = JavaScriptEncoder.Create(encoderSettings),
-                WriteIndented = true
+                Encoder = JavaScriptEncoder.Create(encoderSettings)
             };
 
             return JsonSerializer.Serialize(obj, options);
