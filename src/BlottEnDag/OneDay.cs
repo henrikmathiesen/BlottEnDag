@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace BlottEnDag
 {
@@ -158,7 +157,7 @@ namespace BlottEnDag
             model.answers = JsonSerializer.Serialize(_QuestionAndAnswer);
             model.deleted = false;
             model.score = GetRating();
-            model.theDate = _Date.ToUniversalTime().ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'");
+            model.theDate = DateHelpers.getUniversalTimeString(_Date);
 
             // See also
             // https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
