@@ -11,13 +11,15 @@ namespace BlottEnDag
 
             try
             {
-                Console.WriteLine("Saving ...");
+                Console.WriteLine("Open Database");
                 
                 conn.Open();
                 
-                // var sql = $"INSERT INTO oneday (theDate, score, answers, deleted) VALUES ('{model.theDate}', {model.score}, '{model.answers}', {model.deleted});";
-                // MySqlScript script = new MySqlScript(conn, sql);
-                // script.Execute();
+                var sql = $"INSERT INTO oneday (theDate, score, answers, deleted) VALUES ('{model.theDate}', {model.score}, '{model.answers}', {model.deleted});";
+                MySqlScript script = new MySqlScript(conn, sql);
+                script.Execute();
+
+                Console.WriteLine("Saving Success");
 
             }
             catch (Exception ex)
@@ -26,7 +28,7 @@ namespace BlottEnDag
             }
 
             conn.Close();
-            Console.WriteLine("Saving done.");
+            Console.WriteLine("Closing Database");
         }
     }
 }
