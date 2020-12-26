@@ -1,10 +1,6 @@
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text.Encodings.Web;
-using System.Text.Json;
-using System.Text.Unicode;
 
 namespace BlottEnDag
 {
@@ -156,20 +152,7 @@ namespace BlottEnDag
         {
             var model = new DbModel();
 
-            // Reuse options, https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-configure-options?pivots=dotnet-5-0
-            // https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-character-encoding
-            var encoderSettings = new TextEncoderSettings();
-            // ä, Ö, å, Ä, ö
-            encoderSettings.AllowCharacters('\u00E4', '\u00D6', '\u00E5', '\u00C4', '\u00F6');
-            encoderSettings.AllowRange(UnicodeRanges.BasicLatin);
-            
-            var options = new JsonSerializerOptions
-            {
-                Encoder = JavaScriptEncoder.Create(encoderSettings),
-                WriteIndented = true
-            };
-
-            model.answers = JsonSerializer.Serialize(_QuestionAndAnswer, options);
+            model.answers = MakeJson.Serialize(_QuestionAndAnswer);
             model.deleted = false;
             model.score = GetRating();
             model.theDate = DateHelpers.getUniversalTimeString(_Date);
